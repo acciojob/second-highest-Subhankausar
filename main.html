@@ -1,32 +1,45 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <script>
+        function secondHighest(arr) {
+            if (arr.length < 2) {
+                return -Infinity; // Not enough elements to find a second-highest
+            }
 
-<body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+            let max = -Infinity;
+            let secondMax = -Infinity;
 
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    secondMax = max;
+                    max = arr[i];
+                } else if (arr[i] > secondMax && arr[i] !== max) {
+                    secondMax = arr[i];
+                }
+            }
 
-    <script type="text/javascript" src="./script.js">
-</script>
+            if (secondMax === -Infinity || secondMax === max) {
+                return -Infinity; // All elements are the same or there is no distinct second-highest
+            }
 
+            return secondMax;
+        }
+
+        function Main() {
+            var n = prompt("Enter the number of elements");
+            var arr = [];
+            for (var i = 0; i < n; i++) {
+                arr[i] = prompt("Enter element " + (i + 1));
+            }
+            alert(secondHighest(arr));
+        }
+        Main();
+    </script>
+
+    <script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
