@@ -15,8 +15,8 @@ function secondHighest(arr) {
         }
     }
 
-    if (secondMax === -Infinity) {
-        return -Infinity; // All elements are the same
+    if (secondMax === -Infinity || secondMax === max) {
+        return -Infinity; // All elements are the same or there is no distinct second-highest
     }
 
     return secondMax;
